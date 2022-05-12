@@ -4,7 +4,7 @@ const helmet = require('helmet')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 
-const {authRoute} = require('./src/routes')
+const {authRoute} = require('./src/route')
 
 dotenv.config()
 const app = express()
@@ -32,6 +32,6 @@ app.use('/',async(req,res)=>{
 
 mongoose.connect(mongo).then(()=>{
   app.listen(port,()=>{
-    console.log(listening on server:${port})
+    console.log(`listening on server:${port}`)
   })
 }).catch(e=>console.log(e))
