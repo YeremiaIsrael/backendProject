@@ -4,7 +4,7 @@ const helmet = require('helmet')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 
-const {authRoute} = require('./src/route')
+const {authRoute,userRoute} = require('./src/route')
 
 dotenv.config()
 const app = express()
@@ -24,7 +24,8 @@ app.use((req,res,next)=>{
 app.use(morgan('common'))
 app.use(helmet())
 
-app.use('/api/auth',authRoute)
+app.use('/auth',authRoute)
+app.use('/user',userRoute)
 
 app.use('/',async(req,res)=>{
   await res.send('connected to base endpoint')
