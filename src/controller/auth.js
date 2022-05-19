@@ -22,7 +22,7 @@ exports.register = async (req,res)=>{
 exports.login = async (req,res)=>{
   try {
     const user = await User.findOne({username:req.body.username})
-    !user && res.status(404).send({message:'user not found'})
+    !user && res.status(404).send({message:'user is not found!'})
     console.log(user);
 
     const validPassword = await bcrypt.compare(req.body.password,user.password)
