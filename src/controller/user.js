@@ -5,7 +5,7 @@ exports.updateUserData = async (req,res)=>{
   if (req.body.userId === req.params.id) {
     if (req.body.password) {
       try{
-        res.status(200).json('password has been updated')
+        res.status(200).json('password has been updated!')
       } catch(e){
         return e
       }
